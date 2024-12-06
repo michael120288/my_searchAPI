@@ -1,7 +1,4 @@
-import * as supertest from "supertest";
-import { config } from "../config/config";
-import { request } from "../helper/setup";
-// const request = supertest(config.baseURL);
+import { request } from "../../setup";
 describe("healthcheck", () => {
   it("healthcheck", async () => {
     const response = await request.get("/healthcheck");

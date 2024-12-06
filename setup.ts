@@ -1,5 +1,5 @@
 import * as supertest from "supertest";
-import { config } from "../config/config"; // Ensure your config file has the baseURL property
+import { config } from "./config"; // Ensure your config file has the baseURL property
 
 const request = supertest(config.baseURL);
 
