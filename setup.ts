@@ -1,6 +1,12 @@
-import * as supertest from "supertest";
-import { config } from "./config"; // Ensure your config file has the baseURL property
+import * as supertest from 'supertest';
+import { config } from 'dotenv';
 
-const request = supertest(config.baseURL);
+config({ path: `./env/.env.${process.env.ENV || 'qa'}` }); // Load environment variables based on ENV
 
-export { request };
+if (!process.env.BASE_URL) {
+  throw new Error('BASE_URL is not defined. Check your environment configuration.');
+}
+
+export const request = supertest(process.env.BASE_URL);
+
+console.log(`Supertest is using BASE_URL: ${process.env.BASE_URL}`);
