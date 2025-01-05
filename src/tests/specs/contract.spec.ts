@@ -166,7 +166,6 @@ describe("contract", () => {
     console.log(newTier, "newTier");
     matches.forEach((cClause: any) => {
       // Verify current rate clauses
-
       if (cClause["contract_clause_type_code"] === `${currentRate}`) {
         if (!cClause["updated_on"].includes("2024-12-31")) {
           console.log(cClause, "cClause");
